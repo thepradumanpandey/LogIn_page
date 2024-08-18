@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url(./IMAGE/pexels-george-dolgikh-551816-1303081.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: chocolate;
+    backdrop-filter: blur(2px);
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.351);
+    border: 1px solid rgba(208, 208, 208, 0.456);
+    width: 768px;
+    min-height: 480px;
+    overflow: hidden;
+    position: relative;
+}
+
+.container p {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.container a {
+    text-decoration: none;
+}
+
+.container h1 {
+    color: white;
+}
+
+.container button {
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.container button:hover {
+    color: white;
+    background-color: black;
+}
+
+.container form {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.container input {
+    background-color: white;
+    border: none;
+    margin: 12px 0;
+    padding: 14px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+    left: 0;
+}
+
+.login {
+    left: 0;
+    opacity: 1;
+    z-index: 2;
+}
+
+.Register {
+    left: 0;  /* Change left to 100% initially */
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .login {
+    left: -100%;  /* Move out of view when active */
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .Register {
+    left: 50%;  /* Bring into view when active */
+    opacity: 1;
+    z-index: 1;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 230px 0 0 230px;
+    z-index: 1000;
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle {
+    height: 100%;
+    background: rgb(0, 0, 0);
+    color: rgb(227, 216, 216);
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .right {
+    transform: translateX(200%);
+}
+
+.container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 230px 230px 0;
+}
+
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.left {
+    transform: translateX(-200%);
+}
+
+.container.container .left {
+    transform: translateX(0);
+}
